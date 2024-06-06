@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Song List</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Song List</h1>
+      <ul>
+        {% for song in songs %}
+          <li><a href="{{ url_for('recommendations', song_name=song) }}">{{ song }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Music Recommendation Service</p>
+    </footer>
+
+    <script>
+        function showRecommendations(songName) {
+            // Redirect to recommendations page with the selected song name as a query parameter
+            window.location.href = `recommendations.html?song=${encodeURIComponent(songName)}`;
+        }
+    </script>
+</body>
+</html>
+
